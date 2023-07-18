@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>user profile</title>
+        <link href="../../css/user_profile.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    </head>
+    <body >
+     
+<section>
+ <div class="uper">
+        <div class="profile">
+                 <div class="heading">
+                            <h2>Profile Picture</h2>
+                 </div>
+                <img src="../../image/jee.jpeg" alt=""> <br>
+                <h4>JPG or PNG no larger than 5 MB</h4> <br> <br>
+                        <button id="UploadImg" >Upload New Image</button>
+        </div>
+        <div class="reg">
+            <div class="heading">
+                 <h2>Account Details</h2>
+            </div>
+            <form >        
+            <div class="form-box">
+                   <div class="left">
+                     <label for="first name">First name:</label>
+                         <input type="text" id="first name" name="first name" placeholder="Enter your first    name"required>        
+                      <label for="email">Email:</label>
+                           <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                     <label for="password">Password:</label>
+                         <input type="password" id="password" name="password" placeholder="Enter your password"         required>
+                      <label for="address">Address:</label> 
+                          <textarea name="address" id="address" ></textarea>
+                            
+                    </div>
+               
+                    <div class="right">
+                       <label for="lastName">Last Name:</label>
+                       <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required>
+                        <label for="contactNumber">Contact Number:</label>
+                       <input type="tel" id="contactNumber" name="contactNumber" placeholder="Enter your contact number" required>
+                       <label for="country">Country:</label> 
+                      <select id="country" name="country" required>
+                       <option value="">Select</option>
+                        <option value="male">india</option>
+                        <option value="female">pak</option>
+                        <option value="other">usa</option>
+                       </select>
+                         <label for="gender">Gender:</label> 
+                        <input type="radio" id="gender" name="gender" required> Male
+                       <input type="radio" id="gender" name="gender" required> Female
+                    </div>
+            </div>
+           
+                         <br>
+                           <input type="submit" id="submit" name="submit" value="Update Profile"> 
+                         <br>
+                        
+    
+            </form>
+        </div>
+    </div>
+    <div class="lower">
+        <div class="heading">
+            <h2>My Order</h2>
+        </div>
+        <table border="2px solid white" cellpadding="5px" >
+            <tr>
+                <th>#</th>
+                <th>Product</th>
+                <th>Data</th>
+                <th>Price</th>
+                <th>Shiping Charge</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <th>1</th>
+                <th>Titan Watch</th>
+                <th>17-02-2023</th>
+                <th>1000 RS</th>
+                <th>0</th>
+                <th>5</th>
+                <th>5000</th>
+                <th>delivered</th>
+            </tr>
+            <tr>
+                <th>1</th>
+                <th>Titan Watch</th>
+                <th>17-02-2023</th>
+                <th>1000 RS</th>
+                <th>0</th>
+                <th>5</th>
+                <th>5000</th>
+                <th>delivered</th>
+            </tr>
+            <tr>
+                <th>1</th>
+                <th>Titan Watch</th>
+                <th>17-02-2023</th>
+                <th>1000 RS</th>
+                <th>0</th>
+                <th>5</th>
+                <th>5000</th>
+                <th>delivered</th>
+            </tr>
+        </table>
+    </div>
+</section>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

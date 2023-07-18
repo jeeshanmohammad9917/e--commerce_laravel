@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Cart</title>
+        <link href="../../css/cart.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    </head>
+    <body >
+ <div class="cart">
+        <div class="heading">
+        <h2>Cart</h2>
+      
+        </div>
+         <div class="cartdetail">
+            <table  cellpadding="5px" >
+                <tr>
+                    <th>#</th>
+                    <th>Photo</th>
+                    <th>product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>                
+                    <th>Total</th>                    
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <th><img src="../../image/jee.jpeg" alt="" height="20px" width="20px" style="border-radius: 100%;"></th>
+                    <th>Apple Watch</th>
+                    <th><input type="text" id="Qty" name="Qty"></th>
+                    <th>10 Rs</th>
+                    <th>500 Rs</th>                    
+                </tr>
+                <tr>
+                    <th>2</th>
+                    <th><img src="../../image/jee.jpeg" alt="" height="20px" width="20px" style="border-radius: 100%;"></th>
+                    <th>Apple Watch</th>
+                    <th><input type="text" id="Qty" name="Qty"></th>
+                    <th>10 Rs</th>
+                    <th>500 Rs</th>  
+                </tr>
+                <tr>
+                    <th>3</th>
+                    <th><img src="../../image/jee.jpeg" alt="" height="20px" width="20px" style="border-radius: 100%;"></th>
+                    <th>Apple Watch</th>
+                    <th><input type="text" id="Qty" name="Qty"></th>
+                    <th>10 Rs</th>
+                    <th>500 Rs</th>  
+                </tr>
+            </table>
+            <div class="buttombox">
+               
+                <div class="buttomleft">
+                    <input class="form-control" type="text" placeholder="Coupon Code..." />
+                        <button class="coupon" id="coupon" >Apply</button>
+                <p>Special Note for this order:</p>
+                <textarea name="Specialnote" id="Specialnote" placeholder="Message here..."  ></textarea>  <br>
+                
+                
+                </div>     
+                <div id="buttomright">
+                    <table>
+                    <tr>
+                      <th>Sub-Total :</th>
+                      <td>1000</td>                                 
+                    </tr>
+                    <tr>
+                      <th>Shiping :</th>           
+                      <td>200</td>
+                    </tr>
+                    <tr>
+                      <th>Tax(18%) :</th>
+                      <td>00</td>
+                    </tr>
+                    <tr>
+                      <th><h2>Amount :</h2></th>
+                      <td><h2>1200</h2></td>
+                    </tr>
+                  </table>
+                </div>
+                
+            </div>
+            <a href="checkout.html" class="checkout-btn">Update Cart</a> <a href="checkout.html" class="checkout-btn">Proceed to Checkout</a> 
+         </div>
+  
+</div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
