@@ -122,7 +122,6 @@ class Authentication extends Controller
         User::where('email', $request->email)->update(['password' => bcrypt($request->password)]);
         return redirect()->route('login',[] , 301)->with('success','Password Reset Successfully.');
 
-        return redirect()->route('login')->with('success', 'Password Reset Successfully.');
     }
 
     public function out( Request $request){
