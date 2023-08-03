@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\brand;
+
 
 class usercontroller extends Controller
 {
@@ -15,7 +17,8 @@ class usercontroller extends Controller
         return view('user_profile' , compact('user'));
     }
     public function Home(Request $Request){
-        return view('user_index');
+        $brands = brand::all();
+        return view('user_index' , compact('brands'));
     }
     public function userprofileupdate(Request $Request){
         
@@ -33,13 +36,14 @@ class usercontroller extends Controller
         $user->update($RequestData);
         return redirect()->route('user_profile')->with('success','user inserted successfully.');
     }
+    
     public function userimageupdate(Request $Request){
         $this->validate($Request,[
             'profile' => 'required|mimes:jpg,jpeg,png',
         ]);
         $RequestData=$Request->except(['_token','_method','update']);
         $imgname='zeeshu_'. rand() .'.' . $Request->profile->extension();
-        $Request->profile->move(public_path('profiles/').$imgname);
+        $Request->profile->move(public_path('profiles/'),$imgname);
         $RequestData['profile']=$imgname;
         $user=User::find(auth()->user()->id);
         $exitingprofile=$user->profile;

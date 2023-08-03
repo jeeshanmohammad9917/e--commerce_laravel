@@ -14,6 +14,8 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
     const ADMIN_ROLE = 1;
     const USER_ROLE = 0;
+    const USER_ACTIVE = 1;
+    const USER_DEACTIVE = 0;
 
     /**
      * The attributes that are mass assignable.
@@ -32,7 +34,8 @@ class User extends Authenticatable
         'gender',
         'address',
         'country',
-        'profile'
+        'profile',
+        'is_active'
     ];
 
     /**
@@ -54,4 +57,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function getFullNameAttribute(){
+        return ucfirst($this->fname) . " ". ucfirst($this->lname) ;
+    }
+
+    public function getRoleNameAttribute(){
+        return ($this->role_id == self::ADMIN_ROLE) ? 'Admin' : 'User';
+    }
 }

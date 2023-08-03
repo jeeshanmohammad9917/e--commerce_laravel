@@ -17,9 +17,14 @@ class CheckRoles
      */
     public function handle(Request $request, Closure $next)
     {
-        if(auth()->user()->role_id !== User::ADMIN_ROLE) {
-            return redirect()->route('user_index', [], 301);
+        if(!auth()->user()){
+            return redirect()->route('login', [], 301);
+
+        }else{
+            if(auth()->user()->role_id !== User::ADMIN_ROLE) {
+                return redirect()->route('user_index', [], 301);
+            }
+            return $next($request);
         }
-        return $next($request);
     }
 }

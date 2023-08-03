@@ -10,15 +10,15 @@
                         <div class="sb-nav-link-icon"><i class="fa fa-user-circle" aria-hidden="true"></i></div>
                         Admins
                     </a>
-                    <a class="nav-link" href="index.html">
+                    <a class="nav-link" href="{{ route('admin_user_list') }}">
                         <div class="sb-nav-link-icon"><i class="fa fa-users" aria-hidden="true"></i></div>
                         Users
                     </a>
-                    <a class="nav-link" href="brands.html">
+                    <a class="nav-link" href="{{route('brands.index')}}">
                         <div class="sb-nav-link-icon"><i class="fa fa-list" aria-hidden="true"></i></div>
                         Brands
                     </a>
-                    <a class="nav-link" href="index.html">
+                    <a class="nav-link" href="{{route('products.index')}}">
                         <div class="sb-nav-link-icon"><i class="fa fa-archive" aria-hidden="true"></i></div>
                         Products
                     </a>
@@ -42,6 +42,6 @@
             </div>
             <div class="sb-sidenav-footer">
                 <div class="small">Logged in as:</div>
-                LearnVern Admin
+                mohammad zeeshan
             </div>
         </nav>

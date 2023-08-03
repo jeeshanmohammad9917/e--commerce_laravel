@@ -39,7 +39,7 @@ class Authentication extends Controller
         // print_r($requestdata);
         // exit;
         $imgname='zeeshu_'.rand().'.'. $request->profile->extension();
-        $request->profile->move(public_path('profiles/').$imgname);
+        $request->profile->move(public_path('profiles/'),$imgname);
         $requestdata['profile']=$imgname;
         $requestdata['password']=Hash::make($request->password);
         $requestdata['role_id']=User::USER_ROLE;
@@ -71,7 +71,7 @@ class Authentication extends Controller
             }
         }
         else{
-            return redirect()->intended('login',[] , 301)->withSuccess('please try again');
+            return redirect()->route('login',[] , 301)->withSuccess('please try again');
 
         }
         // fetch all table data
