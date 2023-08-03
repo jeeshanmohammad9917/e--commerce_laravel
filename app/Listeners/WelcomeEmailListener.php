@@ -32,8 +32,8 @@ class WelcomeEmailListener implements ShouldQueue
     {
         $user = $event->user;
         $emailData = [
-            'subject' => 'Welcome to LearnVern Watch Store',
-            'body' => 'Welcome to LearnVern Watch Store.',
+            'subject' => 'Welcome to my store Watch Store',
+            'body' => 'Welcome to my store Watch Store.',
             'tagline' => 'LEARN ANY COURSE FOR FREE IN YOUR OWN LANGUAGE UPDATED.'
         ];
         Mail::to((string) $user->email)

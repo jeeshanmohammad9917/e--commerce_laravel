@@ -18,6 +18,7 @@ class usercontroller extends Controller
     }
     public function Home(Request $Request){
         $brands = brand::all();
+   
         return view('user_index' , compact('brands'));
     }
     public function userprofileupdate(Request $Request){

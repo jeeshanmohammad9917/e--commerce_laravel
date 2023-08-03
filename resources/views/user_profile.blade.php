@@ -57,13 +57,13 @@
                                     <div class="col">
                                         <label for="fname" class="form-label">First Name</label>
                                         <input type="text" class="form-control" id="fname" name="fname"
-                                               placeholder="Meet" value="{{$user->fname}}"
+                                               placeholder="mohammad" value="{{$user->fname}}"
                                                required="">
                                     </div>
                                     <div class="col">
                                         <label for="lname" class="form-label">Last Name</label>
                                         <input type="text" class="form-control" id="lname" name="lname"
-                                               placeholder="Shah" value="{{$user->lname}}"
+                                               placeholder="zeeshan" value="{{$user->lname}}"
                                                required="">
                                     </div>
                                 </div>

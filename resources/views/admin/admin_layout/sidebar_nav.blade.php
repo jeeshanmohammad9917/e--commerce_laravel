@@ -42,6 +42,7 @@
             </div>
             <div class="sb-sidenav-footer">
                 <div class="small">Logged in as:</div>
-                mohammad zeeshan
+                @guest My Account @else {{ Auth()->user()->fullname ?? 'My Account' }}
+                @endguest
             </div>
         </nav>

@@ -31,9 +31,9 @@ class SendForgotPasswordEmail extends Mailable
     public function build()
     {
         return $this
-            ->from('zeeshanmohammad934@gmail.com', 'LearnVern')
+            ->from('zeeshanmohammad934@gmail.com', 'my store')
             ->replyTo('mohammadjeeshan9917@gmail.com', 'Reply To Email')
-            ->subject('LearnVern Store - Forgot Password Request')
+            ->subject('my store - Forgot Password Request')
             ->view('forgot_password_email')
             ->with([
                 'token' => $this->emailData['token'],
