@@ -2,7 +2,7 @@
 @extends('layout_user')
 @section('content')
 
-</style>
+
 <div class="reg">
           
         <form method="POST" action="{{Route('store_user')}}" enctype="multipart/form-data">

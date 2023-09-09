@@ -26,9 +26,11 @@ class ProductController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        $brands=brand::all();
-        return view('admin.product_add' , compact('brands'));    
+    
+    {   
+         $brands=brand::all();
+        $products = product::all();
+        return view('admin.product_add' , compact('products','brands'));    
     }
 
     /**
@@ -54,7 +56,7 @@ class ProductController extends Controller
         $request->image->move(public_path('products/'), $imgName);
         $requestData['image'] = $imgName;
         $product = product::create($requestData);
-        return redirect()->route('products.index', [], 301)->with('success', 'Product Created Successfully.');
+        return redirect()->route('product.index', [], 301)->with('success', 'Product Created Successfully.');
     }
 
     /**

@@ -4,7 +4,7 @@
 <h1 class="mt-4">Product</h1>
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{route('products.index')}}">Product List</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('product.index')}}">Product List</a></li>
                     <li class="breadcrumb-item active">Add Product</li>
                 </ol>
         <!-- Account page navigation-->
@@ -21,7 +21,7 @@
                    </div>
                   @endif
                   <div class="card-body">
-                    <form method="POST" action="{{ route('products.store') }}"
+                    <form method="POST" action="{{ route('product.store') }}"
                     enctype="multipart/form-data">
                   @csrf
                   <div class="row mb-3">
@@ -66,7 +66,7 @@
                           <label for="product_code" class="form-label">Product Code</label>
                           <input type="text" class="form-control" id="product_code"
                                  name="product_code"
-                                 placeholder="LV-123"
+                                 placeholder="Z-123"
                                  required="">
                       </div>
                       <div class="col">

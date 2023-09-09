@@ -11,7 +11,7 @@
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>
                     All Products
-                    <a href="{{ route('products.create') }}" class="btn btn-outline-primary btn-sm float-end"> + Add Product</a>
+                    <a href="{{ route('product.create') }}" class="btn btn-outline-primary btn-sm float-end"> + Add Product</a>
                 </div>
                 <div class="card-body">
                     @include('flash_data')

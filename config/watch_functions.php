@@ -6,5 +6,6 @@ return [
     'Mechanical',
     'Smart',
     'Digital',
-    'kitchen'
+    'kitchen',
+    'fashion'
 ];

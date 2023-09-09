@@ -15,13 +15,17 @@ use App\Http\Middleware;
 |
 */
 
-Route::get('/user_index', function () {
-    return view('user_index');
+Route::controller( \App\Http\Controllers\homecontroller::class)->group(function(){
+    Route::get('/','index')->name('home');  
+    Route::get('/view-product/{product:product_code}','productinfo')->name('product_info');  
+    Route::get('/list-product','productlist')->name('product_list');  
+
 });
+Route::resource('cart', \App\Http\Controllers\CartController::class);
 
 
 Route::controller( \App\Http\Controllers\Authentication::class)->group(function(){
-    Route::get('/','register')->name('register');
+    Route::get('/reg','register')->name('register');
     Route::post('/register','storeuser')->name('store_user');
     Route::get('/login','login')->name('login');
     Route::post('/login','authenticate')->name('login_auth');
@@ -32,6 +36,7 @@ Route::controller( \App\Http\Controllers\Authentication::class)->group(function(
     Route::get('/out','out')->name('out');
 
 });
+
 
 Route::controller( \App\Http\Controllers\usercontroller::class)->group(function(){
     Route::get('/profile','userprofile')->name('user_profile');
@@ -45,7 +50,7 @@ Route::controller( \App\Http\Controllers\usercontroller::class)->group(function(
 Route::group(['prefix' => '/admin', 'middleware'=> 'checkRoles'],function(){
     
     Route::controller( \App\Http\Controllers\admincontroller::class)->group(function(){
-        Route::get('/','index')->name('admin_home');
+        Route::get('/adminhome','index')->name('admin_home');
         Route::get('/userr-list', 'usersList')->name('admin_user_list');
         Route::get('/edit-user/{id}', 'editUsers')->name('admin_user_edit');
         Route::put('/update-user/{id}', 'updateUsers')->name('admin_user_update');
@@ -59,7 +64,7 @@ Route::group(['prefix' => '/admin', 'middleware'=> 'checkRoles'],function(){
         Route::post('/change-brand-image/{id}', 'changeBrandImage')->name('admin_brand_image_change');
         Route::get('/change-brand-status/{id}/{status?}', 'changeBrandStatus')->name('admin_change_brand_status');  
     });
-    Route::resource('products', \App\Http\Controllers\ProductController::class);
+    Route::resource('product', \App\Http\Controllers\ProductController::class);
 
 });
 

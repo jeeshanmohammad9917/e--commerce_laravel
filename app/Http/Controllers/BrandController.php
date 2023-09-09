@@ -45,7 +45,7 @@ class BrandController extends Controller
         // print_r($requestdata);
         // exit;
         $imgname=Str::snake($request->name) .".". $request->image->extension();
-        $request->image->move(public_path('brands/').$imgname);
+        $request->image->move(public_path('brands/'),$imgname);
         $requestdata['image']=$imgname;
         $brand=brand::create($requestdata);
         //    echo"<pre>";

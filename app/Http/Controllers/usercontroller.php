@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\brand;
+use App\Models\product;
 
 
 class usercontroller extends Controller
@@ -17,9 +18,9 @@ class usercontroller extends Controller
         return view('user_profile' , compact('user'));
     }
     public function Home(Request $Request){
-        $brands = brand::all();
+        $products = product::all();
    
-        return view('user_index' , compact('brands'));
+        return view('user_index' , compact('products'));
     }
     public function userprofileupdate(Request $Request){
         
