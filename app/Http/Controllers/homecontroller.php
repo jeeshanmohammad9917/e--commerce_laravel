@@ -24,6 +24,7 @@ class homecontroller extends Controller
         $requestData = $request->all();
         $brands = Brand::pluck('name', 'id');
         $products = Product::query();
+       
         if (isset($requestData['gender']) && !empty($requestData['gender'])) {
             $products = $products->where('gender', $requestData['gender']);
         }
@@ -62,7 +63,7 @@ class homecontroller extends Controller
                 }
         }
         // echo "<pre>";
-        // print_r($Requestdata);
+        // print_r($requestdata);
         // exit;
         $products = $products->paginate(12);
         return view('product_list', compact('products','brands'));

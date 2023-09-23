@@ -29,6 +29,11 @@
                         <div class="card-header"><h5>Profile Picture</h5></div>
                         <div class="card-body text-center">
                             <!-- Profile picture image-->
+                            {{-- @php
+                                echo "<pre>";
+                                print_r($user->profile);
+                                exit;
+                            @endphp --}}
                             <img class="img-account-profile rounded-circle mb-2"
                                  src="{{ asset('profiles') . '/' . $user->profile }}" alt="" style="width:50% ; height:50%">
                             <!-- Profile picture help block-->

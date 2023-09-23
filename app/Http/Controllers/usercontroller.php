@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\brand;
 use App\Models\product;
+use App\Models\lineitem;
 
 
 class usercontroller extends Controller
@@ -15,7 +16,8 @@ class usercontroller extends Controller
         //           echo"<pre>";
         // print_r(asset('profile').'/'.$user->profile);
         // exit;
-        return view('user_profile' , compact('user'));
+        $lineitems = lineitem::where('user_id', $user->id)->orderBy('id', 'ASC')->get();
+        return view('user_profile' , compact('user' ,'lineitems'));
     }
     public function Home(Request $Request){
         $products = product::all();

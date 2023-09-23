@@ -24,6 +24,7 @@ class CheckRoles
             if(auth()->user()->role_id !== User::ADMIN_ROLE) {
                 return redirect()->route('user_index', [], 301);
             }
+
             return $next($request);
         }
     }

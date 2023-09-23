@@ -1,6 +1,6 @@
 @extends('layout_user')
 @section('content')
-@include('flash_data')
+
                                 @if($errors->any())
                                 <div class="alert alert-danger">
                                   <ul>
@@ -12,6 +12,7 @@
                                 @endif
         <!-- Account page navigation-->
             <div class="row">
+               
                 <div class="col-xl-4">
                     <!-- Profile picture card-->
                     <div class="card mb-4 mb-xl-0">
@@ -119,6 +120,7 @@
             </div>
             <!-- Orders Section -->
             <div class="row">
+                @include('flash_data')
                 <div class="col-xl">
                     <!-- Profile picture card-->
                     <div class="card mb-4 mb-xl-0">
@@ -138,56 +140,18 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td scope="row">1</td>
-                                    <td>Titan Watch</td>
-                                    <td>17-02-2022</td>
-                                    <td>₹1000</td>
-                                    <td>₹00</td>
-                                    <td>5</td>
-                                    <td>₹5000</td>
-                                    <td>Delivered</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">2</td>
-                                    <td>Police Watch</td>
-                                    <td>17-02-2022</td>
-                                    <td>₹1000</td>
-                                    <td>₹00</td>
-                                    <td>5</td>
-                                    <td>₹5000</td>
-                                    <td>Attempted Delivery</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">3</td>
-                                    <td>Rolex Watch</td>
-                                    <td>17-02-2022</td>
-                                    <td>₹1000</td>
-                                    <td>₹00</td>
-                                    <td>5</td>
-                                    <td>₹5000</td>
-                                    <td>Confirmed</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">4</td>
-                                    <td>Tag Heuer Watch</td>
-                                    <td>17-02-2022</td>
-                                    <td>₹1000</td>
-                                    <td>₹00</td>
-                                    <td>5</td>
-                                    <td>₹5000</td>
-                                    <td>Out for delivery</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">5</td>
-                                    <td>Titan Watch</td>
-                                    <td>17-02-2022</td>
-                                    <td>₹1000</td>
-                                    <td>₹00</td>
-                                    <td>5</td>
-                                    <td>₹5000</td>
-                                    <td>On its way</td>
-                                </tr>
+                                    @foreach($lineitems as $lineitem)
+                                    <tr>
+                                        <td scope="row">{{ $loop->iteration }}</td>
+                                        <td>{{ $lineitem->productData->name }}</td>
+                                        <td>{{ $lineitem->created_at }}</td>
+                                        <td>₹ {{ $lineitem->price }}</td>
+                                        <td>₹ {{ $lineitem->orderData->shipping?? 0 }}</td>
+                                        <td>{{ $lineitem->quantity }}</td>
+                                        <td>₹ {{ $lineitem->orderData->amount }}</td>
+                                        <td>{{ $lineitem->orderData->status ?? 'not'}}</td>
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>

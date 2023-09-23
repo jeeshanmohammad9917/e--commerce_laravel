@@ -61,7 +61,9 @@ class Authentication extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
+        $user = User::where('email', $request->input('email'))->first();
         
+       if ($user && $user->is_active === 1) {
         $credentials = $request->only('email' ,'password');
         if(Auth::attempt($credentials)){
             if(auth()->user()->role_id == User::ADMIN_ROLE){
@@ -74,6 +76,10 @@ class Authentication extends Controller
             return redirect()->route('login',[] , 301)->withSuccess('please try again');
 
         }
+       } else {
+        return redirect()->route('login',[] , 301)->withDanger('Your account is not active');
+       }
+       
         // fetch all table data
         // if(Auth::attempt($credentials)){
         //     $user = auth()->user();

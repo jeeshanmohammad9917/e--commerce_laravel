@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class comments extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'id';
+
+    protected $table = 'comments';
+    protected $fillable = [
+        'user_id',
+        'comment'];
+
 }

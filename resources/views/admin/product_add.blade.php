@@ -4,7 +4,7 @@
 <h1 class="mt-4">Product</h1>
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{route('product.index')}}">Product List</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('products.index')}}">Product List</a></li>
                     <li class="breadcrumb-item active">Add Product</li>
                 </ol>
         <!-- Account page navigation-->
@@ -21,7 +21,7 @@
                    </div>
                   @endif
                   <div class="card-body">
-                    <form method="POST" action="{{ route('product.store') }}"
+                    <form method="POST" action="{{ route('products.store') }}"
                     enctype="multipart/form-data">
                   @csrf
                   <div class="row mb-3">
@@ -70,7 +70,7 @@
                                  required="">
                       </div>
                       <div class="col">
-                          <label for="gender" class="form-label">Gender</label><br>
+                          <label for="gender" class="form-label">For</label><br>
                           <input type="radio" id="gender" name="gender" value="male" checked>&nbsp;&nbsp;Male&nbsp;&nbsp;
                           <input type="radio" id="gender" name="gender" value="female">&nbsp;&nbsp;Female
                           <input type="radio" id="gender" name="gender" value="children">&nbsp;&nbsp;Children

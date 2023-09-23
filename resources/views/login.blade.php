@@ -20,7 +20,10 @@
                      <label for="email">Email:</label>
                       <input type="email" id="email" name="email" placeholder="Enter your email" required>
                     <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    <div class="password-container">
+                      <input type="password" id="password" name="password" placeholder="Enter your password" class="myellip" required>
+                      <i class="fas fa-eye-slash show-password-icon" id="togglePassword"></i>
+                    </div>
                          <br>
                         </div> <br>
                         <input type="submit" id="submit" name="submit"> <br>
@@ -29,5 +32,9 @@
 
       
   </form>
+  
 </div>
+ 
+
+
 @endsection

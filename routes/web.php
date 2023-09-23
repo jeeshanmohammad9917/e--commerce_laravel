@@ -22,13 +22,21 @@ Route::controller( \App\Http\Controllers\homecontroller::class)->group(function(
 
 });
 Route::resource('cart', \App\Http\Controllers\CartController::class);
+Route::post('add-to-cart', [\App\Http\Controllers\CartController::class, 'addToCart'])->name('add_to_cart');
+Route::get('/store_order',[ \App\Http\Controllers\CartController::class , 'storeOrder'])->name('store_order');
 
+Route::controller( \App\Http\Controllers\OrderController::class)->group(function(){
+    Route::get('/orders', 'index')->name('list_orders');
+    Route::post('/change-order-status/{id}', 'changeOrderStatus')->name('admin_change_order_status');
+    Route::get('/lineitems/{id}', 'getLineItems')->name('get_line_items');
+
+});
 
 Route::controller( \App\Http\Controllers\Authentication::class)->group(function(){
     Route::get('/reg','register')->name('register');
     Route::post('/register','storeuser')->name('store_user');
     Route::get('/login','login')->name('login');
-    Route::post('/login','authenticate')->name('login_auth');
+    Route::post('/login-auth','authenticate')->name('login_auth');
     Route::get('/forgotpass','forgotpassword')->name('forgotpassword');
     Route::post('/forgot-password', 'sendForgotPasswordEmail')->name('send_forgot_password_email');
     Route::get('/reset-password/{token}', 'resetPassword')->name('reset_password');
@@ -64,8 +72,14 @@ Route::group(['prefix' => '/admin', 'middleware'=> 'checkRoles'],function(){
         Route::post('/change-brand-image/{id}', 'changeBrandImage')->name('admin_brand_image_change');
         Route::get('/change-brand-status/{id}/{status?}', 'changeBrandStatus')->name('admin_change_brand_status');  
     });
-    Route::resource('product', \App\Http\Controllers\ProductController::class);
-
+    Route::resource('products', \App\Http\Controllers\ProductController::class);
+     Route::controller(\App\Http\Controllers\ProductController::class)->group(function () {
+        Route::post('/change-product-image/{id}', 'changeProductImage')->name('admin_product_image_change');
+        Route::get('/change-product-status/{id}/{status?}', 'changeProductStatus')->name('admin_change_product_status');
+    });
 });
 
+Route::get('/payment', [\App\Http\Controllers\RazorpayController::class,'formpage'])->name('payment');
+Route::get('/make-order', [\App\Http\Controllers\RazorpayController::class,'makeorder'])->name('make-order');
+Route::get('/success', [\App\Http\Controllers\RazorpayController::class,'success'])->name('success');
 

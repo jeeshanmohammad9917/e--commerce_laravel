@@ -8,6 +8,18 @@
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
   align-items: center;
   }
+  .password-container {
+    position: relative;
+}
+
+.show-password-icon {
+  position: absolute;
+  transform: translate(-140%, 50%);
+  cursor: pointer;
+}
+
+
+
   input[type="text"],
   input[type="email"],
   input[type="tel"],

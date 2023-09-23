@@ -22,7 +22,15 @@
     opacity: 1;
   }
  
-  
+  .password-container {
+    position: relative;
+}
+
+.show-password-icon {
+  position: absolute;
+  transform: translate(-140%, 50%);
+  cursor: pointer;
+}
 .reg {
     width: 25%;
     margin: 0 auto;

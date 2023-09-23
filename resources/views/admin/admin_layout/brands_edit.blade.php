@@ -56,7 +56,7 @@
                                             <br>
                                             <div class="mb-3">
                                                 <input type="submit" name="add_product" id="add_product"
-                                                value="Add Product"
+                                                value="Add Brand"
                                                 class="btn btn-outline-success">
                                             </div>
                                         </form>

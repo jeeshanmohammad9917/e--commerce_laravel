@@ -96,6 +96,7 @@
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                    @foreach($products as $product)
+                   @if ($product->is_active != 0)
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Sale badge-->
@@ -134,13 +135,14 @@
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                 <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{{route('product_info',['product'=> $product->product_code])}}">View Product</a></div> <br>
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{{route('cart.index')}}">Add to cart</a></div>
                             </div>
                         </div>
                     </div>
+                    @endif
                     @endforeach      
-                    {!! $products->links() !!}
                 </div>
+                {!! $products->links() !!}
                
             </div>
         </section>

@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title><style>
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
 
 
         table, th, td {
@@ -21,9 +23,45 @@
         span{
             border-bottom: 2px solid black;
         }
+
+  #password::placeholder {
+  white-space: nowrap; /* Prevent line breaks */
+  overflow: hidden; /* Hide overflowing text */
+  text-overflow: ellipsis; /* Display ellipsis for overflow */
+  }
+        /* .password-container {
+            position: relative;
+        }
+
+        .show-password-icon {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        } */
         </style>
 </head>
 <body>
+  <style>
+    .single-line-heading {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 200px; /* Adjust the width as needed */
+    }
+  </style>
+  
+  <h1 class="single-line-heading">This is a single-line heading with a long text that will be truncated with an ellipsis if it overflows the container.</h1>
+  
+  <form>
+    <label for="password">Password:</label>
+    <div class="password-container">
+        <input type="password" id="password" name="password"  placeholder="Enter your passwordEnter your passwordEnter your passwordEnter your passwordEnter your password" required>
+        <i class="fas fa-eye-slash show-password-icon" id="togglePassword"></i>
+    </div>
+    <input type="submit" value="Submit">
+</form>
     <table>
         <tr style="padding:2px;">
           <th style=" padding-left: 2px;"><span>Id</span></th>
@@ -62,5 +100,38 @@
             </tr>
         
       </table>
+      
+      
+      <!-- <script>
+        const passwordField = document.getElementById("password");
+        const showPasswordCheckbox = document.getElementById("showPassword");
+      
+        showPasswordCheckbox.addEventListener("change", function() {
+          if (showPasswordCheckbox.checked) {
+            passwordField.type = "text";
+          } else {
+            passwordField.type = "password";
+          }
+        });
+      </script> -->
+    
+
+    <script>
+        const passwordField = document.getElementById("password");
+        const togglePassword = document.getElementById("togglePassword");
+
+        togglePassword.addEventListener("click", function() {
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                togglePassword.classList.remove("fa-eye-slash");
+                togglePassword.classList.add("fa-eye");
+            } else {
+                passwordField.type = "password";
+                togglePassword.classList.remove("fa-eye");
+                togglePassword.classList.add("fa-eye-slash");
+            }
+        });
+    </script>
+      
 </body>
 </html>

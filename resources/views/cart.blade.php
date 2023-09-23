@@ -99,7 +99,9 @@
                             <input type="submit" class="btn btn-outline-primary my-1"
                                 value="Update Cart">
                         </form>
-                            <a href="page-checkout.html" class="btn btn-outline-success my-1"><i class="fa fa-credit-card-alt" aria-hidden="true"></i>
+                            {{-- <a href="{{route('store_order')}}" class="btn btn-outline-success my-1"><i class="fa fa-credit-card-alt" aria-hidden="true"></i>
+                                &nbsp;Proceed to Checkout</a> --}}
+                            <a href="{{route('payment')}}" class="btn btn-outline-success my-1"><i class="fa fa-credit-card-alt" aria-hidden="true"></i>
                                 &nbsp;Proceed to Checkout</a>
                         </div>
                     </div>
@@ -110,4 +112,5 @@
 </div>
 
 </section>
+
 @endsection

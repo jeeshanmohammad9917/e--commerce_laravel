@@ -1,7 +1,7 @@
 @extends('admin.layout_admin')
 @section('content')
     <main>
-        <div class="container h-100" style="margin: 7% 0% 7% 15%;">
+        <div class="container h-100" >
             <h1 class="mt-4">Edit Product</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item"><a href="{{ route('admin_home') }}">Dashboard</a></li>
@@ -26,7 +26,7 @@
                             <div class="card-header"><h5>Image</h5></div>
                             <div class="card-body text-center">
                                 <!-- image picture image-->
-                                <img class="img-account-image rounded-circle mb-2"
+                                <img class="img-account-image "
                                      src="{{ url('products') . '/' . $product->image }}" alt="Product image" width="200">
                                 <!-- image picture help block-->
                                 <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
@@ -57,7 +57,7 @@
                         <div class="card mb-4">
                             <div class="card-header"><h5>Product Details</h5></div>
                             <div class="card-body">
-                                <form method="POST" action="{{ route('product.update', ['product' => $product->id]) }}"
+                                <form method="POST" action="{{ route('products.update', ['product' => $product->id]) }}"
                                       enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')

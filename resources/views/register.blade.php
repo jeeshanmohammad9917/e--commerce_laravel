@@ -24,9 +24,12 @@
                   
                     
                           <label for="email">Email:</label>
-                          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                          <input type="email" id="email" name="email" placeholder="mystore@gmail.com" required>
                           <label for="password">Password:</label>
-                          <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                          <div class="password-container">
+                            <input type="password" id="password" name="password" placeholder="password" required>
+                            <i class="fas fa-eye-slash show-password-icon" id="togglePassword"></i>
+                          </div>
                           <label for="address">Address:</label> 
                             <textarea name="address" id="address" ></textarea>
                             <div class="upload-container">

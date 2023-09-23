@@ -56,7 +56,7 @@ class ProductController extends Controller
         $request->image->move(public_path('products/'), $imgName);
         $requestData['image'] = $imgName;
         $product = product::create($requestData);
-        return redirect()->route('product.index', [], 301)->with('success', 'Product Created Successfully.');
+        return redirect()->route('products.index', [], 301)->with('success', 'Product Created Successfully.');
     }
 
     /**
@@ -72,8 +72,11 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        $brands = Brands::all();
-        return view('admin.product_edit', compact('brands', 'products'));
+        // echo"<pre>";
+        // print_r($requestdata);
+        // exit;
+        $brands = brand::all();
+        return view('admin.product_edit', compact('brands', 'product'));
     }
 
     /**
@@ -81,7 +84,30 @@ class ProductController extends Controller
      */
     public function update(Request $request, product $product)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|min:2|max:50|string',
+            'price' => 'required|numeric',
+            'sale_price' => 'nullable|numeric',
+            'color' => 'required|string',
+            'brand_id' => 'required|exists:brands,id',
+            'product_code' => 'required|min:5',
+            'gender' => 'required|in:male,female,children,unisex',
+            'function' => 'nullable|string|max:50',
+            'stock' => 'required|numeric',
+            'description' => 'required|string|max:500',
+        ]);
+        $product->name = $request->name ?? $product->name;
+        $product->price = $request->price ?? $product->price;
+        $product->sale_price = $request->sale_price ?? $product->sale_price;
+        $product->color = $request->color ?? $product->color;
+        $product->brand_id = $request->brand_id ?? $product->brand_id;
+        $product->product_code = $request->product_code ?? $product->product_code;
+        $product->gender = $request->gender ?? $product->gender;
+        $product->function = $request->function ?? $product->function;
+        $product->stock = $request->stock ?? $product->stock;
+        $product->description = $request->description ?? $product->description;
+        $product->save();
+        return redirect()->route('products.index', [], 301)->with('success', 'Product Created Successfully.');
     }
 
     /**
@@ -90,5 +116,16 @@ class ProductController extends Controller
     public function destroy(product $product)
     {
         //
+    }
+    public function changeProductStatus(Request $request, $id, $status = 1)
+    {
+        $product = product::find($id);
+        if (!empty($product)) {
+            $product->is_active = $status;
+            $product->save();
+            return redirect()->route('products.index')->with('success', 'Product status Updated Successfully!');
+        } else {
+            return redirect()->route('products.index')->with('danger', 'Something went wrong.');
+        }
     }
 }

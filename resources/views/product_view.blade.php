@@ -23,11 +23,17 @@
                 </div>
                 <p class="lead">{{$product->description}}</p>
                 <div class="d-flex">
-                    <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
-                    <button class="btn btn-outline-dark flex-shrink-0" type="button">
+                    <form method="post" action="{{ route('add_to_cart') }}">
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                        <input class="form-control text-center me-3" id="inputQuantity" name="quantity" type="num" min="1" value="1"
+                               style="max-width: 3rem"/>
+                        <br>
+                    <button class="btn btn-outline-dark flex-shrink-0" type="submit" >
                         <i class="bi-cart-fill me-1"></i>
                         Add to Cart
                     </button>
+                    </form>
                 </div>
             </div>
         </div>

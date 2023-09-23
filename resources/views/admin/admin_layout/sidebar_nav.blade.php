@@ -18,11 +18,11 @@
                         <div class="sb-nav-link-icon"><i class="fa fa-list" aria-hidden="true"></i></div>
                         Brands
                     </a>
-                    <a class="nav-link" href="{{route('product.index')}}">
+                    <a class="nav-link" href="{{route('products.index')}}">
                         <div class="sb-nav-link-icon"><i class="fa fa-archive" aria-hidden="true"></i></div>
-                        Products
+                        Products 
                     </a>
-                    <a class="nav-link" href="index.html">
+                    <a class="nav-link" href="{{route('list_orders')}}">
                         <div class="sb-nav-link-icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
                         Orders
                     </a>

@@ -112,7 +112,7 @@ class admincontroller extends Controller
         ]);
         $requestdata=$Request->except(['_token','regist']);
         $imgname='zeeshu_'.rand().'.'. $Request->profile->extension();
-        $Request->profile->move(public_path('profiles/').$imgname);
+        $Request->profile->move(public_path('profiles/'),$imgname);
         $requestdata['profile']=$imgname;
         $requestdata['password']=Hash::make($Request->password);
         $requestdata['role_id']=User::USER_ROLE;
