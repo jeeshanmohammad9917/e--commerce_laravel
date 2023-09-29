@@ -37,7 +37,7 @@
 <script>
             var urls="{{route('success')}}"
             var options = {
-                "key": "rzp_test_KQtXcCLUR4Tucv", // Enter the Key ID generated from the Dashboard
+                "key": "key", // Enter the Key ID generated from the Dashboard
                 "amount": "{{$razorpayOrder->amount}}", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
                 "currency": "INR",
                 "name": "Acme Corp",
