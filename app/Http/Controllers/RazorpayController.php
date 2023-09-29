@@ -14,7 +14,7 @@ class RazorpayController extends Controller
 
     public function __construct($foo = null){
 
-       $this->api = new Api("rzp_test_KQtXcCLUR4Tucv", "S5QeSFSNqPYBpGcNvk1PQ2nh");
+       $this->api = new Api("key", "skey");
     }
 
     public function formpage(Request $request){
